@@ -1,0 +1,7 @@
+﻿Our intended animation was a solar system featuring an earth with an orbiting moon, a rocketship trailed by flames, and an asteroid belt and a meteor. 
+
+
+Abi was in charge of the earth and orbiting the moon. To get the moon to move relative to the position of the earth, she used a class called OrbitingSystem which was made up of two components or objects (earth and moon) that were instantiations of the OrbitingObject class. It should be noted that these two moved in orbit rather differently. The moon used an orbit method in OrbitingObject, and the earth moved by translating the z-axis of the world in the display method in OrbitingSystem. It was a challenge to get the size of the orbits to look correct: this was eventually accomplished through trial and error. The world also continuously rotates along the Y-axis to give the impression of a day and night cycle. Some lights were implemented. A directional light lined up the camera view to give the impression that the camera was located at or in the sun, and a moving point light was implemented according to the moon’s position to give the impression of moonlight. A bluish ambient light was implemented to give the impression of other planets and make the colors more visually appealing. 
+
+
+Note: The obj’s and mtl’s of the moon and earth were retrieved cgtrader.com. The 3d model of the earth was created by vadim-dembitskii, and the 3d model of the moon was created by guruware.
