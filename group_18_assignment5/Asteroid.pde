@@ -1,6 +1,7 @@
 class Asteroid{
     float r;
     float theta;
+    float phi;
     float v;
     int n;
     float f;
@@ -8,9 +9,10 @@ class Asteroid{
     ArrayList<PShape> rocks;
     float[] sizes;
     
-    Asteroid(float r, float theta, float v, int n, float f, ArrayList<PShape> rocks, float[] sizes){
+    Asteroid(float r, float theta, float phi, float v, int n, float f, ArrayList<PShape> rocks, float[] sizes){
       this.r = r;
       this.theta = theta;
+      this.phi = phi;
       this.v = v;
       this.n = n;
       this. f = f;
@@ -25,7 +27,7 @@ class Asteroid{
       for (int i = 0; i<n; i++){
         PShape temp = loadShape("asteroid.obj");        
         rocks.add(temp);
-        sizes[i] = random(10,60);
+        sizes[i] = random(10,60)*f;
         }
       
     }
@@ -44,7 +46,7 @@ class Asteroid{
         rocks.get(i).rotateY(radians(theta));
         rocks.get(i).scale(sizes[i]);
         rocks.get(i).translate(0,0,700+z);
-        rocks.get(i).translate(x,x/5,0);
+        rocks.get(i).translate(x,x*phi,0);
       
         shape(rocks.get(i));
       }
