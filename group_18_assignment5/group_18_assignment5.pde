@@ -7,15 +7,29 @@ float rotation;
 String objEarth = "lowpoly+earth.obj";
 String objMoon = "moon.obj";
 
+Asteroid asteroid;
+ArrayList<PShape> rocks;
+float[] sizes;
+
 void setup() {
    size(1100, 800, P3D);
    earthSystem = new OrbitingSystem(new PVector(0,0,-700), new PVector(1,-.5),s,objEarth);
+   
+   asteroid = new Asteroid(width+600,90,1,20,0,rocks,sizes);
+   asteroid.create();
+   
   frameRate(30);
 }
 void draw() {
   background(0);
   //camera is set up to be almost exactly like default but closer to the z-axis
-  camera(width/2.0, height/2.0, -450, width/2.0, height/2.0, 0, 0, 1, 0);
+  camera(width/2.0, height/2.0, -450, 
+        width/2.0, height/2.0, 0,
+        0, 1, 0);
+  
   translate(width/2, height/2, 0);
   earthSystem.display();
+  asteroid.display();
+  
+  
 }
