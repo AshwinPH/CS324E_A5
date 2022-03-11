@@ -11,7 +11,7 @@ String objMoon = "moon.obj";
 
 void setup() {
    size(1100, 800, P3D);
-   r = loadShape("rocket.obj");
+   //r = loadShape("shuttle_rockets_and_fuel_tank.obj");
    spaceship = new Rocket(r,0.0,0.0,0);
    spaceship.make();
    earthSystem = new OrbitingSystem(new PVector(0,0,-700), new PVector(1,-.5),s,objEarth);
@@ -24,8 +24,9 @@ void draw() {
   camera(width/2.0, height/2.0, -450, width/2.0, height/2.0, 0, 0, 1, 0);
   
   spaceship.display();
-  if (spaceship.ypos > height){
-    spaceship.ypos = 800;
+  
+  if (spaceship.ypos < -1*height/2){
+    spaceship.ypos = height/2;
   } else {
     spaceship.move();
   }
